@@ -199,6 +199,7 @@ class ComposerStaticInit2914cb30663a1ec43e2ff57b753e2f38
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MLL\\GraphiQL\\' => 13,
         ),
         'L' => 
         array (
@@ -470,6 +471,10 @@ class ComposerStaticInit2914cb30663a1ec43e2ff57b753e2f38
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'MLL\\GraphiQL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mll-lab/laravel-graphiql/src',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -3355,6 +3360,9 @@ class ComposerStaticInit2914cb30663a1ec43e2ff57b753e2f38
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'MLL\\GraphiQL\\DownloadAssetsCommand' => __DIR__ . '/..' . '/mll-lab/laravel-graphiql/src/DownloadAssetsCommand.php',
+        'MLL\\GraphiQL\\GraphiQLController' => __DIR__ . '/..' . '/mll-lab/laravel-graphiql/src/GraphiQLController.php',
+        'MLL\\GraphiQL\\GraphiQLServiceProvider' => __DIR__ . '/..' . '/mll-lab/laravel-graphiql/src/GraphiQLServiceProvider.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',

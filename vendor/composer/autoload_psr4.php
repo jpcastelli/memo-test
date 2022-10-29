@@ -57,6 +57,7 @@ return array(
     'Nuwave\\Lighthouse\\' => array($vendorDir . '/nuwave/lighthouse/src'),
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'MLL\\GraphiQL\\' => array($vendorDir . '/mll-lab/laravel-graphiql/src'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'League\\Config\\' => array($vendorDir . '/league/config/src'),
