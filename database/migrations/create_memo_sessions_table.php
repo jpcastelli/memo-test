@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('memo_sessions', function (Blueprint $table) {
             $table->id('id');
             $table->string('memo_test_id');
-            $table->integer('retries');
-            $table->integer('number_of_pairs');
+            $table->integer('retries')->default(0);
+            $table->integer('number_of_pairs')->default(0);
             $table->enum('state', ['Started', 'Completed'])->default('Started');
             $table->timestamps();
         });
