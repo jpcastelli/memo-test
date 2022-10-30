@@ -11,10 +11,10 @@ type MemoTest {
   name: String!
   images: [String]
   created_at: DateTime!
-  sessions: [MemoSessions] @hasMany
+  sessions: [MemoSession] @hasMany
 }
 
-type MemoSessions {
+type MemoSession {
   id: ID!
   memo_test_id: MemoTest! @belongsTo
   retries: Int 
@@ -25,4 +25,5 @@ type MemoSessions {
 type Query {
   GetMemoTests: [MemoTest] @all
   GetMemoTestById(id: Int! @eq): MemoTest @find
+  GetSessionById(id: Int! @eq): MemoSession @find
 }
