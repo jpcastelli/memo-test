@@ -8,8 +8,8 @@ enum State {
 
 type MemoTest {
   id: ID!
-  name: String
-  images: List
+  name: String!
+  images: [String]
   created_at: DateTime!
   sessions: [MemoSessions] @hasMany
 }
