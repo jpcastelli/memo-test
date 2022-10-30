@@ -16,7 +16,7 @@ type MemoTest {
 
 type MemoSession {
   id: ID!
-  memo_test_id: MemoTest! @belongsTo
+  memo: MemoTest! @belongsTo
   retries: Int 
   number_of_pairs: Int
   state: State
@@ -26,4 +26,10 @@ type Query {
   GetMemoTests: [MemoTest] @all
   GetMemoTestById(id: Int! @eq): MemoTest @find
   GetSessionById(id: Int! @eq): MemoSession @find
+}
+
+type Mutation {
+  createMemoTest(name: String!, images: [String]): MemoTest @create
+  createMemoSession(memo_test_id: Int, retries: Int, number_of_pairs: Int):MemoSession @create
+  endGame(id: int!, state: Completed):MemoTest @update
 }
