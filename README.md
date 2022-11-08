@@ -42,6 +42,7 @@ APP_KEY=XXXXXXXXXXXXX
 
 On the backend side I made use of Sail CLI in order to run Laravel's docker containers.
 ``` bash 
+% php artisan sail:install
 % sail up
 ```
 For serving a GraphQL API server I used <a href="https://lighthouse-php.com/">Lighthouse Framework</a> after installing it as a dependency using Composer. 
