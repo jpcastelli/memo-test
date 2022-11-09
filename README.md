@@ -17,17 +17,33 @@ APP_DEBUG=true
 APP_KEY=XXXXXXXXXXXXX
 ```
 
+## Before installing Sail you may require php version >= 8.1 to be installed in your local environment:
+```bash
+brew install php@8.1
+```
+Make sure your Docker installation is running
+
+On the backend side I made use of Sail CLI in order to run Laravel's docker containers. (Make sure your Docker installation is running)
+``` bash 
+% php artisan sail:install
+## After being asked about the service you'd like to install just hit enter
+% sail up
+```
+
+Configure your shell so to prevent writing full Sail command path by following below Laravel documentation:
+https://laravel.com/docs/9.x/sail#configuring-a-shell-alias
+
 ### Generate the APP KEY necessary for Laravel cookies encryption.
 ```bash
 % sail php artisan key:generate
 ```
 ### Clear cache
 ```bash 
-% php artisan cache:clear
+% sail php artisan cache:clear
 ```
 ### Running Migrations
 ```bash
-% php artisan migrate
+% sail php artisan migrate
 ```
 
 ### Seeding DB Tables
@@ -37,14 +53,9 @@ APP_KEY=XXXXXXXXXXXXX
 ```
 ### Or you can run migration and seeding all in once
 ```bash
-% php artisan migrate:refresh --seed
+% sail php artisan migrate:refresh --seed
 ```
 
-On the backend side I made use of Sail CLI in order to run Laravel's docker containers.
-``` bash 
-% php artisan sail:install
-% sail up
-```
 For serving a GraphQL API server I used <a href="https://lighthouse-php.com/">Lighthouse Framework</a> after installing it as a dependency using Composer. 
 In order to have an explore the schema and testing queries I used <a href="https://github.com/mll-lab/laravel-graphiql">GrapiQL</a> but also, Postman could be use too.
 
@@ -55,7 +66,22 @@ After running docker containers and in order to also run React it's necessary to
 % npm run dev
 ```
 
-#Useful GraphQL queries
+Frontend Path:
+```bash
+http://localhost
+```
+
+GraphiQL Path:
+```bash
+http://localhost/graphiql
+```
+
+GraphQL API Path:
+```bash
+http://localhost/graphql
+```
+
+#Useful GraphQL queries:
 ```bash 
 mutation {
   createMemoSession(memo_test_id: 2, retries: 0, number_of_pairs:0) {
