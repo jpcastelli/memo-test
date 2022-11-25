@@ -1,0 +1,69 @@
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container ul {
+    text-align: center;
+    padding: 0 0;
+   
+}
+
+.container ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.container ul li span {
+    padding-right: 10px;
+}
+
+.finalResults {
+    background-color: grey;
+    width: 100%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container .memoList {
+    padding: 20px 0 20px 0;
+    background-color: darkgray;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.memoCards {
+    width: 810px;
+    margin: 0 auto;
+}
+
+.memoCards li {
+    width: 200px;
+    height: 239px;
+    list-style: none;
+    float: left;
+    margin: 0 0 6px 10px;
+}
+
+.memoCards li img {
+    width: 200px;
+    height: 239px;
+}
+
+.memoCards .flippedCard {
+    width: 200px;
+    height: 239px;
+    background-color: black;
+}

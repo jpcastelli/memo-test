@@ -1,7 +1,7 @@
 // resources/js/App.jsx
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
-import MemoElement from './MemoElement';
+import MemosList from './MemosList';
 
 export default function App() {
 
@@ -20,17 +20,24 @@ export default function App() {
       if (error) return <p>Error displaying the Memo Tests :(</p>;
  
       return data.GetMemoTests.map(({ id, name }) => 
-              <MemoElement key={id} id={ id } name={ name } state="Not Started" />
+        <MemosList key={id} id={ id } name={ name } state="Start" />
       );
   }
     
   return (
-      <div>
-          <h1>Welcome to the Memo Tests!!</h1>
-          <h2>Enjoy the experience</h2>
-          <div id="memo-list">
-              <DisplayMemos />
-          </div>
-      </div>
+      
+        <>
+        <div className='container'>
+            <h1>Welcome to the Memo Tests</h1>
+            <h2>Enjoy the experience</h2>
+    
+            <div className="memoList">
+                <ul>
+                    <DisplayMemos />
+                </ul>
+            </div>
+        </div>
+        </>
+      
   )
 }
