@@ -30,7 +30,6 @@ On the backend side I made use of Sail CLI in order to run Laravel's docker cont
 ## After being asked about the service you'd like to install just hit enter
 sail up
 ```
-
 Configure your shell so to prevent writing full Sail command path by following below Laravel documentation:
 https://laravel.com/docs/9.x/sail#configuring-a-shell-alias
 
