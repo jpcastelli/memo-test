@@ -7,7 +7,7 @@ The game has been fully developed in Laravel <v9.37.0> and React <v18.0.0>, by s
 ### Create a .env file under the root of the project and add below variables
 ```bash
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
+DB_HOST=mysql
 DB_DATABASE=memo-test
 DB_USERNAME=root
 DB_PASSWORD=
@@ -26,8 +26,9 @@ Make sure your Docker installation is running
 On the backend side I made use of Sail CLI in order to run Laravel's docker containers. (Make sure your Docker installation is running)
 ``` bash 
 % php artisan sail:install
+## Choose [0] mysql
 ## After being asked about the service you'd like to install just hit enter
-% sail up
+sail up
 ```
 
 Configure your shell so to prevent writing full Sail command path by following below Laravel documentation:
@@ -35,25 +36,25 @@ https://laravel.com/docs/9.x/sail#configuring-a-shell-alias
 
 ### Generate the APP KEY necessary for Laravel cookies encryption.
 ```bash
-% sail php artisan key:generate
+sail php artisan key:generate
 ```
 ### Clear cache
 ```bash 
-% sail php artisan cache:clear
+sail php artisan cache:clear
 ```
 ### Running Migrations
 ```bash
-% sail php artisan migrate
+sail php artisan migrate
 ```
 
 ### Seeding DB Tables
 ``` bash
- % sail php artisan db:seed --class=MemoTestSeeders
- % sail php artisan db:seed --class=MemoSessionSeeders
+ sail php artisan db:seed --class=MemoTestSeeders
+ sail php artisan db:seed --class=MemoSessionSeeders
 ```
 ### Or you can run migration and seeding all in once
 ```bash
-% sail php artisan migrate:refresh --seed
+sail php artisan migrate:refresh --seed
 ```
 
 For serving a GraphQL API server I used <a href="https://lighthouse-php.com/">Lighthouse Framework</a> after installing it as a dependency using Composer. 
@@ -62,8 +63,8 @@ In order to have an explore the schema and testing queries I used <a href="https
 # Frontend
 After running docker containers and in order to also run React it's necessary to open a new terminal tab and to run:
 ```bash
-% npm install
-% npm run dev
+npm install
+npm run dev
 ```
 
 Frontend Path:
