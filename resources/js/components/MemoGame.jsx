@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 const GET_IMAGES_QUERY = gql` 
-    query GetMemoTestById($id: ID!) {
+    query GetMemoTestById($id: Int!) {
         GetMemoTestById(id: $id) {
         id
         name
@@ -37,7 +37,7 @@ const MemoGame = () => {
         useQuery(GET_IMAGES_QUERY,
             {
             variables: {
-                id: gameId
+                id: parseInt(gameId)
             }
             }
         );
@@ -133,7 +133,7 @@ const MemoGame = () => {
             }
         }
     }, [TotalFlippedCards]);
-    console.log(MemoStatus)
+
     const onClickHandler = (imageId) => {
         
         flipClickedCard(imageId);
@@ -149,7 +149,7 @@ const MemoGame = () => {
         return (
         <>
             <h1>Congratulations!!!</h1>
-            <span className='finalResults'>Final Score: {(numberOfRetries > 0) ?? (parseInt(numberOfPairs / numberOfRetries) * 100)} : TOP SCORE</span>
+            <span className='finalResults'>Final Score: {( parseFloat(numberOfPairs / numberOfRetries) * 100).toFixed(2) } </span>
             <span className='finalResults'>Matches: { numberOfPairs } / Retries: { numberOfRetries }</span>
             <span><Button component={Link} to={ homePage } variant="contained">Return Home</Button></span>
         </>
