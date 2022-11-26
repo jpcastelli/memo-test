@@ -2,6 +2,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import MemosList from './MemosList';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
   
   function DisplayMemos() {
       const { loading, error, data } = useQuery(GET_MEMO_TESTS);
-      if (loading) return <p>Loading...</p>;
+      if (loading) return <CircularProgress />;
       if (error) return <p>Error displaying the Memo Tests :(</p>;
  
       return data.GetMemoTests.map(({ id, name }) => 
@@ -25,12 +26,12 @@ export default function App() {
   }
     
   return (
-      
         <>
         <div className='container'>
-            <h1>Welcome to the Memo Tests</h1>
-            <h2>Enjoy the experience</h2>
-    
+            <div className='hero-container'>
+                <h1>Welcome to the Memo Tests</h1>
+                <h2>Enjoy the experience</h2>
+            </div>
             <div className="memoList">
                 <ul>
                     <DisplayMemos />
@@ -38,6 +39,5 @@ export default function App() {
             </div>
         </div>
         </>
-      
   )
 }

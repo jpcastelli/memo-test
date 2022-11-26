@@ -1,4 +1,5 @@
 import App from '../components/App';
+import Header from '../components/Header';
 import MemoGame from '../components/MemoGame';
 
 import {
@@ -8,11 +9,11 @@ import {
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: <App />,
+      element: <><Header /><App /></>,
     },
     {
         path: "/game",
-        element: <MemoGame />,
+        element: <><Header /><MemoGame /></>,
       },
   ]);
 

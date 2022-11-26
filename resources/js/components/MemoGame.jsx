@@ -161,7 +161,9 @@ const MemoGame = () => {
 
     return (
         <>
+        <div className='container'>
         {(! wonState) ? 
+        
             <ul className='memoCards'>
                 {MemoStatus.map((ms) => <MemoCard flipped={ms.flipped}
                     onClickHandler={() => onClickHandler(ms.id)}
@@ -172,6 +174,7 @@ const MemoGame = () => {
             </ul>
         : <EndGame />
         }
+        </div>
         </>
     ); 
 }

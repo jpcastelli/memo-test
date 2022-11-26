@@ -1,0 +1,20 @@
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png';
+
+const homePage = { 
+    pathname: "/"
+  };
+
+const Header = () => {
+    return(
+        <div className="header">
+            <div className="logo">
+                <Link component={ Link } to={ homePage }>
+                    <img src={logo} alt='Memo Tests Games' />
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+export default Header;

@@ -13,12 +13,14 @@ class MemosList extends React.Component {
             search: "gameId="+props.id
           };
     }
-    
+
     render() {
         return (
-        <li className="memo-element">
-            <span>{ this.props.name }</span>
-            <Button component={ Link } to={ this.newTo } variant="contained">{ this.state.status }</Button>
+        <li className="memo-game">
+            <span className='game-name'>{ this.props.name }</span>
+            <span>
+                <Button component={ Link } to={ this.newTo } variant="outlined">{ this.state.status }</Button>
+            </span>
         </li>);
     }
 }
