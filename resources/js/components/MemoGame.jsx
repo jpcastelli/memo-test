@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import { useLocation } from "react-router-dom";
 import MemoCard from "./MemoCard";
 import Button from '@mui/material/Button';
@@ -13,8 +13,21 @@ const GET_IMAGES_QUERY = gql`
         id
         name
         images
+            sessions {
+                id
+                state
+                memo {
+                    name
+                }
+            }
         }
     }`;
+
+const END_GAME_MUTATION = gql` 
+    mutation endGame($id: Int!, $state: State) {
+        endGame(id: $id, state: $state) {
+            id
+}}`;
 
 const homePage = { 
     pathname: "/"
@@ -33,6 +46,7 @@ const MemoGame = () => {
     const [numberOfRetries, SetNumberOfRetries] = useState(0);
     const [numberOfCards, SetNumberOfCards] = useState(0);
     const [wonState, SetWonState] = useState(false);
+    const [sessionId, SetSessionId] = useState();
 
     const { loading, error, data } = 
         useQuery(GET_IMAGES_QUERY,
@@ -54,6 +68,7 @@ const MemoGame = () => {
                 ), []
             ).sort(() => .5 - Math.random()));
 
+            SetSessionId(data.GetMemoTestById.sessions[0].id);
             SetNumberOfCards(data.GetMemoTestById.images.length);
         }
 
@@ -111,10 +126,19 @@ const MemoGame = () => {
         setFlippedCard(imageId);
     }
 
+    const [endGameSession, { data1, loading1, error1 }] = useMutation(END_GAME_MUTATION);
+
     useEffect(() => {
         if(numberOfPairs > 0) {
             if(numberOfPairs === numberOfCards) {
                 SetWonState(true);
+                
+                endGameSession({
+                    variables: {
+                        id: parseInt(sessionId),
+                        state: 'Completed'
+                    }
+                });
             }
         }
     }, [numberOfPairs]);

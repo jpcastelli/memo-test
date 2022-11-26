@@ -11,17 +11,25 @@ export default function App() {
       GetMemoTests {
        id
        name
+       sessions {
+                id
+                state
+                memo {
+                    name
+                }
+            }
       }
     }
   `;
   
   function DisplayMemos() {
       const { loading, error, data } = useQuery(GET_MEMO_TESTS);
+
       if (loading) return <CircularProgress />;
       if (error) return <p>Error displaying the Memo Tests :(</p>;
- 
-      return data.GetMemoTests.map(({ id, name }) => 
-        <MemosList key={id} id={ id } name={ name } state="Start" />
+
+      return data.GetMemoTests.map(({ id, name, sessions }) => 
+        <MemosList key={id} id={ id } name={ name } sessionId={ sessions[0]?.id } state={ sessions[0]?.state } />
       );
   }
     

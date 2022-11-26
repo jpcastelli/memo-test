@@ -9,7 +9,7 @@ const PERSIST_SESSION_QUERY = gql`
             id
 }}`;
 
-function MemosList({id, name, state}) {
+function MemosList({id, name, sessionId, state}) {
 
     const newTo = { 
         pathname: "/game", 
@@ -19,22 +19,23 @@ function MemosList({id, name, state}) {
     const [createMemoSession, { data, loading, error }] = useMutation(PERSIST_SESSION_QUERY);
 
     const sessionHandler = () => {
-
-        createMemoSession({
-            variables: {
-                memo_test_id: parseInt(id),
-                retries: 0,
-                number_of_pairs: 0,
-                state: 'Started'
-            }
-        });
+        if(! sessionId) {
+            createMemoSession({
+                variables: {
+                    memo_test_id: parseInt(id),
+                    retries: 0,
+                    number_of_pairs: 0,
+                    state: 'Started'
+                }
+            });
+        }
     }
 
     return (
         <li className="memo-game">
             <span className='game-name'>{ name }</span>
             <span>
-                <Button onClick={ sessionHandler } component={ Link } to={ newTo } variant="outlined">{ state }</Button>
+                <Button onClick={ sessionHandler } component={ Link } to={ newTo } variant="outlined">{ (state) ? state : "Start" }</Button>
             </span>
         </li>
     );

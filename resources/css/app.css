@@ -128,6 +128,7 @@ h2 {
     width: 200px;
     height: 239px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .memoCards .flippedCard {
@@ -135,4 +136,5 @@ h2 {
     height: 239px;
     background-color: black;
     border-radius: 5px;
+    cursor: pointer;
 }
