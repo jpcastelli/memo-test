@@ -5,6 +5,7 @@ import MemoCard from "./MemoCard";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
+import SvgIcon from '@mui/material/SvgIcon';
 
 const GET_IMAGES_QUERY = gql` 
     query GetMemoTestById($id: Int!) {
@@ -141,17 +142,19 @@ const MemoGame = () => {
         (TotalFlippedCards < 2) ? (TotalFlippedCards + 1) : 0);
     }
 
-    const ReturnHome = () => {
-        <Button component={Link} to={ homePage } variant="contained">Home</Button>
-    }
-
     const EndGame = () => {
         return (
         <>
-            <h1>Congratulations!!!</h1>
-            <span className='finalResults'>Final Score: {( parseFloat(numberOfPairs / numberOfRetries) * 100).toFixed(2) } </span>
-            <span className='finalResults'>Matches: { numberOfPairs } / Retries: { numberOfRetries }</span>
-            <span><Button component={Link} to={ homePage } variant="contained">Return Home</Button></span>
+            <div className='hero-container'>
+                <h1>Congratulations!!!</h1>
+            </div>
+            <div className='results-container'>
+                <span className='finalResults'>Final Score: {( parseFloat(numberOfPairs / numberOfRetries) * 100).toFixed(2) } </span>
+                <span className='finalResults'>Matches: { numberOfPairs } / Retries: { numberOfRetries }</span>
+            </div>
+            <span className='back-home'>
+                <Button component={Link} to={ homePage } variant="contained">Return Home</Button>
+                </span>
         </>
         )
     }

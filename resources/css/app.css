@@ -82,14 +82,30 @@ h2 {
     float: right;
 }
 
-.finalResults {
-    background-color: grey;
+.results-container {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    background: white;
+    border-radius: 5px;
+}
+
+.results-container .finalResults {
+
     width: 100%;
     padding: 10px 10px;
-    margin-bottom: 10px;
     text-align: center;
     display: block;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.back-home {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.back-home a {
+    background-color: forestgreen;
 }
 
 .memoCards {
