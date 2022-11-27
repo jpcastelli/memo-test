@@ -32,5 +32,6 @@ type Mutation {
   createMemoTest(name: String!, images: [String]): MemoTest @create
   deleteMemoTest(id: Int!): MemoTest @delete
   createMemoSession(memo_test_id: Int, retries: Int, number_of_pairs: Int):MemoSession @create
-  endGame(id: Int!, state: State):MemoSession @update
+  deleteMemoSession(id: Int!): MemoSession @delete
+  endGame(id: Int!, retries: Int, number_of_pairs: Int, state: State):MemoSession @update
 }
