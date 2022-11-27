@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useMutation, gql } from '@apollo/client';
+import GameReset from './GameReset';
 
 const PERSIST_SESSION_QUERY = gql` 
     mutation createMemoSession($memo_test_id: Int!, $retries: Int, $number_of_pairs: Int){
@@ -31,12 +32,26 @@ function MemosList({id, name, sessionId, state}) {
         }
     }
 
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error displaying the Memo Tests :(</p>;
+
     return (
         <li className="memo-game">
             <span className='game-name'>{ name }</span>
             <span>
-                <Button onClick={ sessionHandler } component={ Link } to={ newTo } variant="outlined">{ (state) ? state : "Start" }</Button>
+                <Button disabled={ (state === "Completed") ?? true }
+                    onClick={ sessionHandler } 
+                    component={ Link } 
+                    to={ newTo } 
+                    variant="outlined">
+                        { (state) ? state : "Start" }
+                </Button>
             </span>
+            {
+                (state === "Completed") ?
+                <GameReset sessionId={ sessionId }></GameReset>
+                : ""
+            }
         </li>
     );
 }

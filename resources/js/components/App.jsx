@@ -1,5 +1,5 @@
 // resources/js/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import MemosList from './MemosList';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -23,6 +23,7 @@ export default function App() {
   `;
   
   function DisplayMemos() {
+
       const { loading, error, data } = useQuery(GET_MEMO_TESTS);
 
       if (loading) return <CircularProgress />;

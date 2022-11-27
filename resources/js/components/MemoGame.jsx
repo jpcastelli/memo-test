@@ -5,7 +5,6 @@ import MemoCard from "./MemoCard";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
-import SvgIcon from '@mui/material/SvgIcon';
 
 const GET_IMAGES_QUERY = gql` 
     query GetMemoTestById($id: Int!) {
@@ -24,12 +23,12 @@ const GET_IMAGES_QUERY = gql`
     }`;
 
 const END_GAME_MUTATION = gql` 
-    mutation endGame($id: Int!, $state: State) {
-        endGame(id: $id, state: $state) {
+    mutation endGame($id: Int!, $retries: Int, $number_of_pairs: Int, $state: State) {
+        endGame(id: $id, retries: $retries, number_of_pairs: $number_of_pairs, state: $state) {
             id
 }}`;
 
-const homePage = { 
+const homePage = {
     pathname: "/"
   };
 
@@ -68,7 +67,7 @@ const MemoGame = () => {
                 ), []
             ).sort(() => .5 - Math.random()));
 
-            SetSessionId(data.GetMemoTestById.sessions[0].id);
+            SetSessionId(data.GetMemoTestById?.sessions[0]?.id);
             SetNumberOfCards(data.GetMemoTestById.images.length);
         }
 
@@ -136,6 +135,8 @@ const MemoGame = () => {
                 endGameSession({
                     variables: {
                         id: parseInt(sessionId),
+                        retries: parseInt(numberOfRetries),
+                        number_of_pairs: parseInt(numberOfPairs),
                         state: 'Completed'
                     }
                 });
@@ -190,7 +191,6 @@ const MemoGame = () => {
         <>
         <div className='container'>
         {(! wonState) ? 
-        
             <ul className='memoCards'>
                 {MemoStatus.map((ms) => <MemoCard flipped={ms.flipped}
                     onClickHandler={() => onClickHandler(ms.id)}
