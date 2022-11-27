@@ -25,10 +25,15 @@ h2 {
     background-color: #fda111;
     height: 80px;
     width: 100%;
+    position: absolute;
+    top: 0;
 }
 
 .header .logo {
     text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    float: left;
 }
 
 .header .logo img {
@@ -36,8 +41,19 @@ h2 {
     margin-top: 10px;
 }
 
+.header .user-session {
+    float: right;
+    padding: 20px 20px 0 0;
+    /* right: 0; */
+    /* position: absolute; */
+    /* top: 0; */
+    /* height: 100%; */
+    text-align: center;
+}
+
 .container {
     width: 100%;
+    padding-top: 80px;
 }
 
 .hero-container {
